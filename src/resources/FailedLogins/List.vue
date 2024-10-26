@@ -43,10 +43,12 @@
                       <v-col>
                         <strong class="text-h6">
                           <table>
-                            <tr>
-                              <td style="border: none;" width="35px;" align="left"><v-icon icon="mdi-account-outline" size="small" ></v-icon></td>
-                              <td style="border:none;">{{ item.raw.username }}</td>
-                            </tr>
+                            <tbody>
+                              <tr>
+                                <td style="border: none;" width="35px;" align="left"><v-icon icon="mdi-account-outline" size="small" ></v-icon></td>
+                                <td style="border:none;">{{ item.raw.username }}</td>
+                              </tr>
+                            </tbody>
                           </table>
                         </strong>
                       </v-col>

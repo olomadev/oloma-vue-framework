@@ -279,4 +279,6 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>@import '../src/components/sass/main.scss'</style>
+// sass 3.0 deprecation bug fixed .
+
+<style lang="sass" scoped>@use 'sass/main.scss' as *</style>

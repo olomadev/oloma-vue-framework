@@ -18,17 +18,21 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000
   },
+  // fixes sass 2.0 deprecation bug
+  // https://stackoverflow.com/questions/78997907/the-legacy-js-api-is-deprecated-and-will-be-removed-in-dart-sass-2-0-0
+  css: {
+    preprocessorOptions: {
+      sass: {
+        api: 'modern',
+        silenceDeprecations: ["legacy-js-api"],
+      }
+    }
+  },
   plugins: [
     // eslintPlugin(),
     vue({ 
       template: { 
-        transformAssetUrls, 
-        compilerOptions: {
-          // trix editor support
-          // tell Vite that all components starting with "trix-" are webcomponents
-          // https://stackoverflow.com/questions/72660014/how-to-make-vue-and-vite-work-with-web-components
-          isCustomElement: (tag) => tag.startsWith('trix-')
-        }
+        transformAssetUrls,
       }
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin

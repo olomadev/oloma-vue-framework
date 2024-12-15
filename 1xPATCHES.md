@@ -30,3 +30,13 @@ p code {
 
 - added sass loader "sass-loader": "^16.0.2", to package.json
 
+## Submodule Fixes
+
+Removed packages/admin from .giginore file
+Removed admin submodule from git modules, developers must follow the installation codes.
+
+```
+git clone -b 1.3.x git@github.com:olomadev/olobase-skeleton-ui.git
+git submodule add -b 1.3.5 git@github.com:olomadev/olobase-admin.git packages/admin
+npm i
+```

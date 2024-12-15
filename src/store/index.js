@@ -6,20 +6,13 @@ const store = defineStore('index', {
     return { 
       locale: "en",
       modules: [],
-      dialog: false,
       drawer: true,
-      confirm: false,
-      resolve: null,
-      reject: null,
       navbarKey: 0,
     }
   },
   getters: {
     getNavbarKey() {
       return this.navbarKey;
-    },
-    getDialog() {
-      return this.dialog;
     },
     getLocale() {
       return this.locale
@@ -53,24 +46,6 @@ const store = defineStore('index', {
     },
     setDrawer(drawer) {
       this.drawer = drawer;
-    },
-    openDialog() {
-      this.dialog = true;
-      return new Promise((resolve, reject) => {
-        this.resolve = resolve;
-        this.reject = reject;
-      });
-    },
-    closeDialog() {
-      this.dialog = false;
-    },
-    agreeDialog() {
-      this.resolve(true);
-      this.dialog = false;
-    },
-    cancelDialog() {
-      this.resolve(false);
-      this.dialog = false;
     },
   }
 });

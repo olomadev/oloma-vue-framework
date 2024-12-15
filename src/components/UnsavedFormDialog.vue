@@ -24,7 +24,7 @@ export default {
   computed: {
     dialog: {
       get() {
-        return this.$store.dialog;
+        return this.$store.getModule("messages").editDialog;
       },
       set(bool) {
         this.cancel();
@@ -34,10 +34,10 @@ export default {
   },
   methods: {
     agree() {
-      this.$store.agreeDialog();
+      this.$store.getModule("messages").agreeUnsavedEditDialog();
     },
     cancel() {
-      this.$store.cancelDialog();
+      this.$store.getModule("messages").cancelUnsavedEditDialog();
     },
   },
 };

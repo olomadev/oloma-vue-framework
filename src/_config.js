@@ -14,7 +14,7 @@ export default {
   // 
   form: {
     disableGenerateUid: false, // if this option is "true" the application will generate integer IDs.
-    disableExitWithoutSave: false,
+    disableUnsavedFormDialog: false,
   },
   i18n: {
     dateFormat: "shortFormat",  

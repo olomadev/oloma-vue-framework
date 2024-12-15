@@ -1,5 +1,5 @@
 /**
- * @oloma.dev (c) 2023-2024
+ * @oloma.dev (c) 2023-2025
  *
  * - plugins/loader.js
  * 
@@ -10,7 +10,7 @@ import "@mdi/font/css/materialdesignicons.css";
 import PortalVue from "portal-vue";
 import RichTextEditorInput from "../components/RichTextEditorInput";
 import TinyMceEditorInput from "../components/TinyMceEditorInput";
-import NoExitWihoutSaveModal from "../components/NoExitWihoutSaveModal";
+import UnsavedFormDialog from "../components/UnsavedFormDialog";
 import camelCase from "lodash/camelCase";
 import upperFirst from "lodash/upperFirst";
 /**
@@ -39,7 +39,7 @@ export default {
     /**
      * Register global modal
      */
-    app.component('formSaveModal', NoExitWihoutSaveModal);
+    app.component('UnsavedFormDialog', UnsavedFormDialog);
     /**
      * Explicit registering of this components because dynamic
      */

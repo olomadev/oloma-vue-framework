@@ -1,4 +1,4 @@
 <template>
   <router-view></router-view>
-  <form-save-modal></form-save-modal>
+  <unsaved-form-dialog></unsaved-form-dialog>
 </template>

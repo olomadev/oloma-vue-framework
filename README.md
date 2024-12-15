@@ -3,4 +3,4 @@
 
 Installation
 
-<a href="https://olobase.dev/docs/latest/ui/installation.html" target="_blank">https://olobase.dev/docs/latest/ui/installation.html</a>
+<a href="https://olobase.oloma.dev/latest/index.html" target="_blank">https://olobase.oloma.dev/latest/index.html</a>

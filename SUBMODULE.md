@@ -1,4 +1,12 @@
 
+## Submodule Add
+
+For every new project you need to add submodule after that clone operation of olobase-skeleton-ui.
+
+```sh
+git submodule add -b 1.x git@github.com:olomadev/olobase-admin.git packages/admin
+```
+
 ## Submodule Init
 
 If you have already cloned a repository and want to load its submodules:

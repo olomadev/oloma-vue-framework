@@ -48,15 +48,14 @@
                     </div>
                   </v-list-item>
                   <v-divider></v-divider>
-                  <v-card flat>
-                    <v-card-text style="padding:0px">
+                  <v-card flat class="mt-2">
+                    <v-card-text style="padding:0px;">
                       <v-list-item
                         v-for="(item, index) in getProfileMenu"
                         :key="index"
                         link
                         :to="item.link"
                         @click="item.logout ? logout() : null"
-                        class=" mt-2"
                       >
                         <template v-slot:prepend>
                           <v-icon>{{ item.icon }}</v-icon>

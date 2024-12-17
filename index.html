@@ -80,6 +80,9 @@
     .v-list-group__items {
       --indent-padding: calc(35px + var(--list-indent-size)) !important;
     }*/
+    .v-list .v-list-item--nav:not(:only-child) {
+      margin-bottom: 0 !important; /* fixes the my account list item margin bottom problem */
+    }
     span.circle {
       background: #e3e3e3;
       border-radius: 50%;

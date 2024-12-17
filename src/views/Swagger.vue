@@ -13,7 +13,8 @@
           <v-btn
             block
             color="primary"
-            href="http://example.local/swagger/web/" target="_blank"
+            :href="getRestAPILink"
+            target="_blank"
             prepend-icon="mdi-open-in-new"
             variant="flat"
           >
@@ -25,4 +26,16 @@
   </v-row>
 </template>
 
+<script>
+export default {
+  computed: {
+    getRestAPILink() {
+      let baseUrl = import.meta.env.VITE_API_URL;
+      const regex = /\/api$/;
+      baseUrl = baseUrl.replace(regex, "");
+      return baseUrl + "/swagger/web/";
+    }
+  },
+};
+</script>
 

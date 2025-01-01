@@ -25,6 +25,7 @@
       </v-col>
       <v-col>
         <va-select-input
+          :key="key"
           source="parentId"
           v-model="parentId"
           reference="categories"

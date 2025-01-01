@@ -205,7 +205,7 @@ function parseApiErrors(error, store) {
     let hasError = false
     let errorObject = error.response.data.data.error
     if (errorObject instanceof Object) {
-      errorHtml = "<ul>";
+      errorHtml = '<ul class="snackbar-errors">';
       Object.keys(errorObject).forEach(function (k) {
         if (Array.isArray(errorObject[k])) {
           hasError = true;

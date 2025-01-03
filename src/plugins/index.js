@@ -53,7 +53,6 @@ export function registerPlugins(app) {
     .use(vuetify)
     .use(i18n);
   const store = useStore();
-  app.use(store);
   useHttp(axios, store); // global http instance
   app.config.globalProperties.$store = store;
   app.config.globalProperties.$vuetify = vuetify;

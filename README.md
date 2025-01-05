@@ -3,7 +3,7 @@
 
 Installation
 
-<a href="https://olobase.dev/docs/latest/ui/installation.html" target="_blank">https://olobase.dev/docs/latest/ui/installation.html</a>
+<a href="https://olobase.oloma.dev/1.0/ui/getting-started/installation.html" target="_blank">https://olobase.oloma.dev/1.0/ui/getting-started/installation.html</a>
 
 ## Become a Sponsor for Oloma.dev 🌍
 

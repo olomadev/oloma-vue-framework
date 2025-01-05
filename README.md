@@ -1,7 +1,7 @@
 
 ## Olobase UI Admin Skeleton
 
-<a href="https://olobase.oloma.dev/1.0/ui/getting-started/installation.html" target="_blank">https://olobase.oloma.dev/1.0/ui/getting-started/installation.html</a>
+<a href="https://olobase.oloma.dev/2.0/ui/getting-started/installation.html" target="_blank">https://olobase.oloma.dev/2.0/ui/getting-started/installation.html</a>
 
 ## Become a Sponsor for Oloma.dev 🌍
 

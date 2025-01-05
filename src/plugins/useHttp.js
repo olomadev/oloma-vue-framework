@@ -7,14 +7,12 @@
  */
 import i18n from "../i18n";
 import router from "@/router";
-import { storeToRefs } from 'pinia'
 import cookies from "olobase-admin/src/utils/cookies";
 import eventBus from "olobase-admin/src/utils/eventBus";
 /**
  * Get cookie constants object
  */
 const cookieKey = JSON.parse(import.meta.env.VITE_COOKIE);
-
 let isRefreshing = false;
 let failedQueue = [];
 let logoutCodes = [ // do not change these values because it is related to your back end api

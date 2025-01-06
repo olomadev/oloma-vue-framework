@@ -6,15 +6,9 @@
     hide-bulk-copy
     @refresh="refresh()"
   >
-    <va-category-tree
-      :key="key"
-      open-all
-      @save="saveNode"
-      @delete="deleteNode"
-    >
-    </va-category-tree>
-    <v-row class="mt-2">
-      <v-col>
+    <va-category-tree :key="key" open-all @save="saveNode" @delete="deleteNode" />
+    <v-row no-gutters class="mt-2">
+      <v-col cols="12" lg="2" md="3" sm="6">
         <va-text-input
           source="name"
           v-model="name"
@@ -23,7 +17,7 @@
           :error-messages="nameErrors"
         ></va-text-input>   
       </v-col>
-      <v-col>
+      <v-col cols="12" lg="2" md="3" sm="6" :class="smAndDown ? '' : 'ml-2'">
         <va-select-input
           :key="key"
           source="parentId"
@@ -34,7 +28,7 @@
           :error-messages="parentIdErrors"
         ></va-select-input> 
       </v-col>
-      <v-col>
+      <v-col cols="12" lg="2" md="3" sm="6" :class="smAndDown ? '' : 'ml-2'">
         <v-btn 
           color="primary"
           style="margin-top:2px;"
@@ -52,13 +46,15 @@ import { provide } from 'vue';
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import Utils from "olobase-admin/src/mixins/utils";
+import { useDisplay } from 'vuetify';
 
 export default {
   props: ["resource", "title"],
   mixins: [Utils],
   setup() {
+    const { smAndDown } = useDisplay();
     provide('v$', useVuelidate() )
-    return { v$: useVuelidate() }
+    return { v$: useVuelidate(), smAndDown }
   },
   data() {
     return {
@@ -95,55 +91,37 @@ export default {
   },
   methods: {
     refresh() {
-      this.key = this.key + 1;
+      ++this.key;
     },
-    deleteNode(item) {
-      const Self = this;
-      this.$admin.http({ method: "DELETE", url: "/categories/delete/" + item.id }).then(async function(response) {
-        if (response && response.status == 200) {
-          Self.key = Self.key + 1;
-          Self.$admin.refresh();
+    async deleteNode(item) {
+      await this.$admin.http({ method: "DELETE", url: "/categories/delete/" + item.id }).then((response) => {
+        if (response && response.status === 200) {
+          ++this.key;
+          this.$admin.refresh();
         }
       });
     },
-    saveNode(item) {
-      const Self = this;
-      let data = {
-        name: item.title,
-        parentId: item.parentId,
-        lft: item.lft,
-        rgt: item.rgt,
-        move: item.move
-      };
-      this.$admin.http({ method: "PUT", url: "/categories/update/" + item.id, data: data }).then(async function(response) {
-        if (response && response.status == 200) {
-          Self.key = Self.key + 1;
-          Self.$admin.refresh();
+    async saveNode(item) {
+      const data = { name: item.name, parentId: item.parentId, lft: item.lft, rgt: item.rgt, move: item.move };
+      await this.$admin.http({ method: "PUT", url: "/categories/update/" + item.id, data: data }).then((response) => {
+        if (response && response.status === 200) {
+          ++this.key;
         }
       });
     },
-    addNode() {
-      const Self = this;
+    async addNode() {
       this.v$.name.$touch();
       this.v$.parentId.$touch();
       if (this.v$.name.$invalid || this.v$.parentId.$invalid) {
         return false;
       }
-      let data = {
-        id: this.generateUid(),
-        name: this.name,
-        parentId: this.parentId.id,
-        lft: this.parentId.lft,
-        rgt: this.parentId.rgt,
-      };
-      this.$admin.http({ method: "POST", url: "/categories/create", data: data }).then(async function(response) {
-        if (response && response.status == 200) {
-          Self.key = Self.key + 1;
-          Self.$admin.refresh();
+      const data = { id: this.generateUid(), name: this.name, parentId: this.parentId.id, lft: this.parentId.lft, rgt: this.parentId.rgt };
+      await this.$admin.http({ method: "POST", url: "/categories/create", data: data }).then((response) => {
+        if (response && response.status === 200) {
+          ++this.key;
         }
       });
     }
   }
 };
 </script>
-
